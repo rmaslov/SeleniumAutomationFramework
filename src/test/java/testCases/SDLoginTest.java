@@ -4,33 +4,36 @@ import base.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pageObjects.SDLoginPage;
+import pageObjects.SDProductsPage;
 import utilities.ReadConfig;
 
 public class SDLoginTest extends BaseTest {
-
+    SDLoginPage loginPage = new SDLoginPage();
+    SDProductsPage productsPage = new SDProductsPage();
+    ReadConfig rc = new ReadConfig();
     @Test
-    public void LoginTest() {
-        SDLoginPage loginPage = new SDLoginPage();
-        ReadConfig rc = new ReadConfig();
-
+    public void loginTest() {
         loginPage.openPage();
         loginPage.validateMainHeader("Swag Labs");
-        loginPage.enterCredentials(rc.getProperty("standard_user"), rc.getProperty("password"));
-        loginPage.clickLogin();
+        loginPage.login(rc.getTestData("standard_user"), rc.getTestData("password"));
     }
 
     @Test
-    public void LoginTestLockedOut() throws InterruptedException {
-        SDLoginPage loginPage = new SDLoginPage();
-        ReadConfig rc = new ReadConfig();
-
+    public void loginTestLockedOut() {
         loginPage.openPage();
-        loginPage.validateMainHeader("Swag Labs");
-        loginPage.enterCredentials(rc.getProperty("locked_out_user"), rc.getProperty("password"));
+        loginPage.enterCredentials(rc.getTestData("locked_out_user"), rc.getTestData("password"));
         loginPage.clickLogin();
         loginPage.checkIfErrorDisplayed(true);
         loginPage.checkErrorMessage("Epic sadface: Sorry, this user has been locked out.");
         loginPage.closeErrorMessage();
         loginPage.checkIfErrorDisplayed(false);
+    }
+
+    @Test
+    public void loginTestProblemUser()  {
+        loginPage.openPage();
+        loginPage.login(rc.getTestData("problem_user"), rc.getTestData("password"));
+        productsPage.checkNumberOfItems(6);
+        productsPage.checkIfImgLinkContains("168b1cce.jpg");
     }
 }
