@@ -18,4 +18,17 @@ public class ReadConfig {
 
         return p.getProperty(key);
     }
+
+    public String getTestData(String key)  {
+        Properties p = new Properties();
+
+        try {
+            FileReader fr = new FileReader("src/test/resources/testData/testData.properties");
+            p.load(fr);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return p.getProperty(key);
+    }
 }

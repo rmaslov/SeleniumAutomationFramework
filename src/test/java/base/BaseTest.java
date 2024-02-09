@@ -17,6 +17,8 @@ import java.util.Properties;
 public class BaseTest {
 
     public static WebDriver driver;
+
+    //load webdriver at the start of each session
     @BeforeSuite
     public void setUp() {
         ReadConfig rc = new ReadConfig();
@@ -33,6 +35,8 @@ public class BaseTest {
             }
         }
     }
+
+    //close webdriver after each test
     @AfterTest
     public void tearDown(){
         driver.quit();
