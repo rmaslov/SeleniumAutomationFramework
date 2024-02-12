@@ -39,7 +39,7 @@ public class BaseTest {
     //close webdriver after each test
     @AfterTest
     public void tearDown(){
-        driver.quit();
+        driver.close();
     }
 
 }

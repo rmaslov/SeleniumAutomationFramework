@@ -2,6 +2,7 @@ package testCases;
 
 import base.BaseTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.SDLoginPage;
 import pageObjects.SDProductsPage;
@@ -13,35 +14,47 @@ public class SDProductsTest extends BaseTest {
     ReadConfig rc = new ReadConfig();
 
     @BeforeTest
-    public void login(){
+    public void login() {
         loginPage.openPage();
         loginPage.login(rc.getTestData("standard_user"), rc.getTestData("password"));
     }
-    @Test
-    public void addAllItemsToCart(){
+
+    @DataProvider(name = "itemInfo")
+    public Object[][] getTestData() {
+        return new Object[][]{
+                {1, "Sauce Labs Backpack", "$29.99"},
+                {2, "Sauce Labs Bike Light", "$9.99"},
+                {3, "Sauce Labs Bolt T-Shirt", "$15.99"},
+                {4, "Sauce Labs Fleece Jacket", "$49.99"},
+                {5, "Sauce Labs Onesie", "$7.99"},
+                {6, "Test.allTheThings() T-Shirt (Red)", "$15.99"}};
+    }
+
+    @Test(description = "Adding all items to cart", priority = 2)
+    public void addAllItemsToCart() {
         productsPage.addAllItemsToCart();
     }
 
-    @Test
-    public void removeAllItemsFromCart(){
+    @Test(description = "Removing all items from cart", priority = 2)
+    public void removeAllItemsFromCart() {
         productsPage.removeAllItemsFromCart();
     }
 
-    @Test
-    public void addAndRemoveItem(){
-        productsPage.addNthItemToCart(2);
+    @Test(dataProvider = "itemInfo", description = "Adding items to Cart", priority = 1)
+    public void addAndRemoveItem(int itemNumber, String itemName, String itemPrice) {
+        productsPage.addNthItemToCart(itemNumber);
         assert productsPage.numberOfItemsInCart() == 1;
-        productsPage.removeNthItemToCart(2);
+        productsPage.removeNthItemToCart(itemNumber);
         assert productsPage.numberOfItemsInCart() == 0;
     }
 
-    @Test
-    public void checkItemName(){
-        assert productsPage.getNthItemName(1).equals(rc.getTestData("first_item_name"));
+    @Test(dataProvider = "itemInfo", description = "Checking item name", priority = 3)
+    public void checkItemName(int itemNumber, String itemName, String itemPrice) {
+        assert productsPage.getNthItemName(itemNumber).equals(itemName);
     }
 
-    @Test
-    public void checkItemPrice(){
-        assert productsPage.getNthItemPrice(1).equals(rc.getTestData("first_item_price"));
+    @Test(dataProvider = "itemInfo", description = "Checking item price", priority = 3)
+    public void checkItemPrice(int itemNumber, String itemName, String itemPrice) {
+        assert productsPage.getNthItemPrice(itemNumber).equals(itemPrice);
     }
 }
