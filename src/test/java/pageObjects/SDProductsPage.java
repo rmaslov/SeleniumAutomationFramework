@@ -17,6 +17,8 @@ public class SDProductsPage extends BaseTest {
     private final By shoppingCartButton = By.id("shopping_cart_container");
     private final By itemName = By.className("inventory_item_name");
     private final By itemPrice = By.className("inventory_item_price");
+    private final By hamburgerMenu = By.id("react-burger-menu-btn");
+    private final By logoutButton = By.id("logout_sidebar_link");
 
 
     public void checkNumberOfItems(int size) {
@@ -67,5 +69,11 @@ public class SDProductsPage extends BaseTest {
 
     public String getNthItemPrice(int n){
         return driver.findElements(itemPrice).get(n - 1).getText();
+    }
+
+    public void logout() throws InterruptedException {
+        driver.findElement(hamburgerMenu).click();
+        Thread.sleep(400);
+        driver.findElement(logoutButton).click();
     }
 }
