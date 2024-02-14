@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="SAF/SeleniumAutomationFramework">
+    <test verbose="2" preserve-order="true" name="C:/Users/Shark/IdeaProjects/SAF/SeleniumAutomationFramework">
         <classes>
+            <class name="testCases.SDLoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="loginTestLockedOut"/>
+                    <include name="loginTestProblemUser"/>
+                </methods>
+            </class>
+            <class name="testCases.SDProductDetailsTest">
+                <methods>
+                    <include name="addAndRemoveItem"/>
+                    <include name="checkItemName"/>
+                    <include name="checkItemPrice"/>
+                </methods>
+            </class>
             <class name="testCases.SDProductsTest">
                 <methods>
                     <include name="addAllItemsToCart"/>
@@ -10,13 +24,6 @@
                     <include name="addAndRemoveItem"/>
                     <include name="checkItemName"/>
                     <include name="checkItemPrice"/>
-                </methods>
-            </class>
-            <class name="testCases.SDLoginTest">
-                <methods>
-                    <include name="loginTest"/>
-                    <include name="loginTestLockedOut"/>
-                    <include name="loginTestProblemUser"/>
                 </methods>
             </class>
         </classes>

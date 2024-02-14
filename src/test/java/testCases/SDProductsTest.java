@@ -20,7 +20,7 @@ public class SDProductsTest extends BaseTest {
     }
 
     @DataProvider(name = "itemInfo")
-    public Object[][] getTestData() {
+    public static Object[][] getTestData() {
         return new Object[][]{
                 {1, "Sauce Labs Backpack", "$29.99"},
                 {2, "Sauce Labs Bike Light", "$9.99"},

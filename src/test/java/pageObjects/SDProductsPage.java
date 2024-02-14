@@ -79,6 +79,11 @@ public class SDProductsPage extends BaseTest {
         return driver.findElements(itemName).get(n - 1).getText();
     }
 
+    public void openNthItem(int n){
+        logger.info("Opening details page for item #" + n);
+        driver.findElements(itemName).get(n - 1).click();
+    }
+
     public String getNthItemPrice(int n) {
         logger.info("Getting price of item #" + n);
         return driver.findElements(itemPrice).get(n - 1).getText();
