@@ -5,6 +5,7 @@ import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -37,9 +38,9 @@ public class BaseTest {
     }
 
     //close webdriver after each test
-    @AfterTest
+    @AfterSuite
     public void tearDown(){
-        driver.close();
+        driver.quit();
     }
 
 }
