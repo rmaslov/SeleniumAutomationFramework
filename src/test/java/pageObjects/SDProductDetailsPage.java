@@ -4,10 +4,11 @@ import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import utilities.LoggerUtils;
 
 public class SDProductDetailsPage extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(SDProductsPage.class);
+    LoggerUtils logger = new LoggerUtils();
     SDProductsPage productsPage = new SDProductsPage();
 
     //Buttons
