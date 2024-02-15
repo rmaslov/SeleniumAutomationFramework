@@ -4,13 +4,14 @@ import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utilities.LoggerUtils;
 import utilities.ReadConfig;
 import org.apache.logging.log4j.Logger;
 
 
 
 public class SDProductsPage extends BaseTest {
-    private static final Logger logger = LogManager.getLogger(SDProductsPage.class);
+    LoggerUtils logger = new LoggerUtils();
     //Items
     private final By inventoryItem = By.className("inventory_item");
     private final By inventoryItemImg = By.xpath("//div[@class='inventory_item']/descendant::img");

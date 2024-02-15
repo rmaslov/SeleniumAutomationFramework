@@ -1,6 +1,7 @@
 package testCases;
 
 import base.BaseTest;
+import io.qameta.allure.Allure;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -12,14 +13,17 @@ import utilities.ReadConfig;
 
 public class SDProductDetailsTest extends BaseTest {
 
-    SDProductsPage productsPage = new SDProductsPage();
-    SDProductDetailsPage productDetailsPage = new SDProductDetailsPage();
-    SDLoginPage loginPage = new SDLoginPage();
+    SDProductsPage productsPage;
+    SDProductDetailsPage productDetailsPage;
+    SDLoginPage loginPage;
     ReadConfig rc = new ReadConfig();
 
 
     @BeforeMethod
     public void login() {
+        productsPage = new SDProductsPage();
+        productDetailsPage = new SDProductDetailsPage();
+        loginPage = new SDLoginPage();
         loginPage.openPage();
         loginPage.login(rc.getTestData("standard_user"), rc.getTestData("password"));
     }
