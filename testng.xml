@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Sauce Demo Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Shark/IdeaProjects/SAF/SeleniumAutomationFramework">
         <classes>
+            <class name="testCases.SDCartTest">
+                <methods>
+                    <include name="checkQuantityInCart"/>
+                    <include name="checkNameInCart"/>
+                    <include name="checkPriceInCart"/>
+                </methods>
+            </class>
             <class name="testCases.SDLoginTest">
                 <methods>
                     <include name="loginTest"/>

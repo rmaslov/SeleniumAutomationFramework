@@ -2,9 +2,7 @@ package testCases;
 
 import base.BaseTest;
 import io.qameta.allure.Allure;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.SDLoginPage;
 import pageObjects.SDProductsPage;
 import utilities.ReadConfig;
@@ -14,7 +12,7 @@ public class SDProductsTest extends BaseTest {
     SDProductsPage productsPage;
     ReadConfig rc = new ReadConfig();
 
-    @BeforeTest
+    @BeforeMethod(inheritGroups = false)
     public void login() {
         loginPage = new SDLoginPage();
         productsPage = new SDProductsPage();
@@ -59,5 +57,10 @@ public class SDProductsTest extends BaseTest {
     @Test(dataProvider = "itemInfo", description = "Checking item price", priority = 3)
     public void checkItemPrice(int itemNumber, String itemName, String itemPrice) {
         assert productsPage.getNthItemPrice(itemNumber).equals(itemPrice);
+    }
+
+    @AfterMethod
+    public void logout() throws InterruptedException {
+        productsPage.logout();
     }
 }

@@ -3,11 +3,19 @@ package pageObjects;
 import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.LoggerUtils;
 import utilities.ReadConfig;
 import org.apache.logging.log4j.Logger;
 
+import java.time.Duration;
+import java.util.function.Function;
 
 
 public class SDProductsPage extends BaseTest {
@@ -24,6 +32,7 @@ public class SDProductsPage extends BaseTest {
     private final By itemPrice = By.className("inventory_item_price");
     private final By hamburgerMenu = By.id("react-burger-menu-btn");
     private final By logoutButton = By.id("logout_sidebar_link");
+    private final By openCartButon = By.className("shopping_cart_link");
 
 
     public void checkNumberOfItems(int size) {
@@ -93,7 +102,14 @@ public class SDProductsPage extends BaseTest {
     public void logout() throws InterruptedException {
         logger.info("Log out");
         driver.findElement(hamburgerMenu).click();
-        Thread.sleep(400);
-        driver.findElement(logoutButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
+
+        WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+        logout.click();
+    }
+
+    public void openCart(){
+        logger.info("Opening cart");
+        driver.findElement(openCartButon).click();
     }
 }
