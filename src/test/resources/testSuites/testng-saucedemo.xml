@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sauce Demo Test Suite">
+    <test verbose="2" preserve-order="true" name="Sauce Demo UI tests">
+        <classes>
+            <class name="testCases.sauceDemo.SDCartTest">
+                <methods>
+                    <include name="checkQuantityInCart"/>
+                    <include name="checkNameInCart"/>
+                    <include name="checkPriceInCart"/>
+                </methods>
+            </class>
+            <class name="testCases.sauceDemo.SDLoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="loginTestLockedOut"/>
+                    <include name="loginTestProblemUser"/>
+                </methods>
+            </class>
+            <class name="testCases.sauceDemo.SDProductDetailsTest">
+                <methods>
+                    <include name="addAndRemoveItem"/>
+                    <include name="checkItemName"/>
+                    <include name="checkItemPrice"/>
+                </methods>
+            </class>
+            <class name="testCases.sauceDemo.SDProductsTest">
+                <methods>
+                    <include name="addAllItemsToCart"/>
+                    <include name="removeAllItemsFromCart"/>
+                    <include name="addAndRemoveItem"/>
+                    <include name="checkItemName"/>
+                    <include name="checkItemPrice"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.sauceDemo;
 
 import base.BaseTest;
 import org.openqa.selenium.By;

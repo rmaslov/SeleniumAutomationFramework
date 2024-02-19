@@ -1,8 +1,6 @@
-package pageObjects;
+package pageObjects.sauceDemo;
 
 import base.BaseTest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import utilities.LoggerUtils;
 

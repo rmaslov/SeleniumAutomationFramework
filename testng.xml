@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Sauce Demo Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/Shark/IdeaProjects/SAF/SeleniumAutomationFramework">
-        <classes>
-            <class name="testCases.SDCartTest">
-                <methods>
-                    <include name="checkQuantityInCart"/>
-                    <include name="checkNameInCart"/>
-                    <include name="checkPriceInCart"/>
-                </methods>
-            </class>
-            <class name="testCases.SDLoginTest">
-                <methods>
-                    <include name="loginTest"/>
-                    <include name="loginTestLockedOut"/>
-                    <include name="loginTestProblemUser"/>
-                </methods>
-            </class>
-            <class name="testCases.SDProductDetailsTest">
-                <methods>
-                    <include name="addAndRemoveItem"/>
-                    <include name="checkItemName"/>
-                    <include name="checkItemPrice"/>
-                </methods>
-            </class>
-            <class name="testCases.SDProductsTest">
-                <methods>
-                    <include name="addAllItemsToCart"/>
-                    <include name="removeAllItemsFromCart"/>
-                    <include name="addAndRemoveItem"/>
-                    <include name="checkItemName"/>
-                    <include name="checkItemPrice"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<suite name="All SAF Suites">
+    <suite-files>
+        <suite-file path="src/test/resources/testSuites/testng-saucedemo.xml"/>
+    </suite-files>
 </suite>
