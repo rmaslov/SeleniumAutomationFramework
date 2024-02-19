@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import utilities.LoggerUtils;
 
 public class SDProductDetailsPage extends BaseTest {
-
-    LoggerUtils logger = new LoggerUtils();
+    
     SDProductsPage productsPage = new SDProductsPage();
 
     //Buttons
@@ -19,32 +18,32 @@ public class SDProductDetailsPage extends BaseTest {
     private final By itemPrice = By.xpath("//div[contains(@class,'inventory_details_price')]");
 
     public void addItemToCart() {
-        logger.info("Adding item to the cart");
+        LoggerUtils.info("Adding item to the cart");
         driver.findElement(addToCartButton).click();
     }
 
     public void removeItemFromCart() {
-        logger.info("Removing item from cart");
+        LoggerUtils.info("Removing item from cart");
         driver.findElement(removeFromCartButton).click();
     }
 
     public void checkNumberOfItemsInCart(int n) {
-        logger.info("Checking number of items in cart");
+        LoggerUtils.info("Checking number of items in cart");
         assert productsPage.numberOfItemsInCart() == n;
     }
 
     public String getItemName() {
-        logger.info("Getting name of current item");
+        LoggerUtils.info("Getting name of current item");
         return driver.findElement(itemName).getText();
     }
 
     public String getItemPrice() {
-        logger.info("Getting price of current item");
+        LoggerUtils.info("Getting price of current item");
         return driver.findElement(itemPrice).getText();
     }
 
     public void navigateBackToProducts() {
-        logger.info("Navigating back to product list");
+        LoggerUtils.info("Navigating back to product list");
         driver.findElement(backToProductsButton).click();
     }
 

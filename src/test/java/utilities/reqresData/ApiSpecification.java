@@ -9,37 +9,14 @@ import io.restassured.specification.ResponseSpecification;
 
 public class ApiSpecification {
 
-    public static RequestSpecification requestSpecificationUsers(){
+    public static RequestSpecification requestSpecificationWBase(String basePath){
         return new RequestSpecBuilder()
                 .setBaseUri("https://reqres.in/")
-                .setBasePath("api/users")
+                .setBasePath("api/"+basePath)
                 .setContentType(ContentType.JSON)
                 .build();
     }
 
-    public static RequestSpecification requestSpecificationUnknown(){
-        return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in/")
-                .setBasePath("api/unknown")
-                .setContentType(ContentType.JSON)
-                .build();
-    }
-
-    public static RequestSpecification requestSpecificationRegister(){
-        return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in/")
-                .setBasePath("api/register")
-                .setContentType(ContentType.JSON)
-                .build();
-    }
-
-    public static RequestSpecification requestSpecificationLogin(){
-        return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in/")
-                .setBasePath("api/login")
-                .setContentType(ContentType.JSON)
-                .build();
-    }
 
     public static ResponseSpecification responseSpecification200OK(){
         return new ResponseSpecBuilder()
