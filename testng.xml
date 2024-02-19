@@ -3,5 +3,6 @@
 <suite name="All SAF Suites">
     <suite-files>
         <suite-file path="src/test/resources/testSuites/testng-saucedemo.xml"/>
+        <suite-file path="src/test/resources/testSuites/testng-reqres.xml"/>
     </suite-files>
 </suite>

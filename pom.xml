@@ -25,15 +25,6 @@
 
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/test/resources/configFiles</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>config.properties</include>
-                </includes>
-            </resource>
-        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
