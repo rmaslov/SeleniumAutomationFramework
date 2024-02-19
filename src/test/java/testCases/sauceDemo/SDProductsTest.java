@@ -1,10 +1,9 @@
-package testCases;
+package testCases.sauceDemo;
 
 import base.BaseTest;
-import io.qameta.allure.Allure;
 import org.testng.annotations.*;
-import pageObjects.SDLoginPage;
-import pageObjects.SDProductsPage;
+import pageObjects.sauceDemo.SDLoginPage;
+import pageObjects.sauceDemo.SDProductsPage;
 import utilities.ReadConfig;
 
 public class SDProductsTest extends BaseTest {

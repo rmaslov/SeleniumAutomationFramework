@@ -20,7 +20,9 @@
         <log4j-version>3.0.0-beta1</log4j-version>
         <extentreports-version>5.1.1</extentreports-version>
         <maven-surefire-plugin-version>3.2.5</maven-surefire-plugin-version>
+        <test.suite>ui</test.suite>
     </properties>
+
 
     <build>
         <pluginManagement>
@@ -112,6 +114,27 @@
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>${extentreports-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>5.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
         </dependency>
     </dependencies>
 

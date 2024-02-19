@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.sauceDemo;
 
 import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +19,6 @@ import java.util.function.Function;
 
 
 public class SDProductsPage extends BaseTest {
-    LoggerUtils logger = new LoggerUtils();
     //Items
     private final By inventoryItem = By.className("inventory_item");
     private final By inventoryItemImg = By.xpath("//div[@class='inventory_item']/descendant::img");
@@ -36,17 +35,17 @@ public class SDProductsPage extends BaseTest {
 
 
     public void checkNumberOfItems(int size) {
-        logger.info("Checking that page contains " + size + " items");
+        LoggerUtils.info("Checking that page contains " + size + " items");
         assert driver.findElements(inventoryItem).size() == size;
     }
 
     public void checkIfImgLinkContains(String link) {
-        logger.info("Checking if element link contains  " + link);
+        LoggerUtils.info("Checking if element link contains  " + link);
         assert driver.findElement(inventoryItemImg).getAttribute("src").contains(link);
     }
 
     public int numberOfItemsInCart() {
-        logger.info("Checking that page contains number of items in cart");
+        LoggerUtils.info("Checking that page contains number of items in cart");
         try {
             return Integer.parseInt(driver.findElement(shoppingCartButton).findElement(By.xpath("descendant::span")).getText());
         } catch (Exception ignored) {
@@ -55,7 +54,7 @@ public class SDProductsPage extends BaseTest {
     }
 
     public void addAllItemsToCart() {
-        logger.info("Adding all available items to the cart");
+        LoggerUtils.info("Adding all available items to the cart");
         int i = 0;
         for (WebElement element : driver.findElements(addToCartButton)) {
             element.click();
@@ -65,17 +64,17 @@ public class SDProductsPage extends BaseTest {
     }
 
     public void addNthItemToCart(int n) {
-        logger.info("Adding item #"+n+" to the cart");
+        LoggerUtils.info("Adding item #"+n+" to the cart");
         driver.findElements(inventoryItem).get(n - 1).findElement(By.xpath("descendant::button[contains(@id,'add-to-cart')]")).click();
     }
 
     public void removeNthItemToCart(int n) {
-        logger.info("Removing item #"+n+" from the cart");
+        LoggerUtils.info("Removing item #"+n+" from the cart");
         driver.findElements(inventoryItem).get(n - 1).findElement(By.xpath("descendant::button[contains(@id,'remove')]")).click();
     }
 
     public void removeAllItemsFromCart() {
-        logger.info("removing all available items from the cart");
+        LoggerUtils.info("removing all available items from the cart");
         int i = numberOfItemsInCart();
         for (WebElement element : driver.findElements(removeFromCartButton)) {
             element.click();
@@ -85,22 +84,22 @@ public class SDProductsPage extends BaseTest {
     }
 
     public String getNthItemName(int n) {
-        logger.info("Getting name of item #" + n);
+        LoggerUtils.info("Getting name of item #" + n);
         return driver.findElements(itemName).get(n - 1).getText();
     }
 
     public void openNthItem(int n){
-        logger.info("Opening details page for item #" + n);
+        LoggerUtils.info("Opening details page for item #" + n);
         driver.findElements(itemName).get(n - 1).click();
     }
 
     public String getNthItemPrice(int n) {
-        logger.info("Getting price of item #" + n);
+        LoggerUtils.info("Getting price of item #" + n);
         return driver.findElements(itemPrice).get(n - 1).getText();
     }
 
     public void logout() throws InterruptedException {
-        logger.info("Log out");
+        LoggerUtils.info("Log out");
         driver.findElement(hamburgerMenu).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
 
@@ -109,7 +108,7 @@ public class SDProductsPage extends BaseTest {
     }
 
     public void openCart(){
-        logger.info("Opening cart");
+        LoggerUtils.info("Opening cart");
         driver.findElement(openCartButon).click();
     }
 }

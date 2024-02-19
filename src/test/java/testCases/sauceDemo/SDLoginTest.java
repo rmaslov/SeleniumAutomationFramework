@@ -1,10 +1,9 @@
-package testCases;
+package testCases.sauceDemo;
 
 import base.BaseTest;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import pageObjects.SDLoginPage;
-import pageObjects.SDProductsPage;
+import pageObjects.sauceDemo.SDLoginPage;
+import pageObjects.sauceDemo.SDProductsPage;
 import utilities.ReadConfig;
 
 public class SDLoginTest extends BaseTest {

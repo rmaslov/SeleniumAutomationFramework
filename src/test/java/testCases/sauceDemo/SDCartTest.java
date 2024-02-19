@@ -1,11 +1,11 @@
-package testCases;
+package testCases.sauceDemo;
 
 import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObjects.SDCartPage;
-import pageObjects.SDLoginPage;
-import pageObjects.SDProductsPage;
+import pageObjects.sauceDemo.SDCartPage;
+import pageObjects.sauceDemo.SDLoginPage;
+import pageObjects.sauceDemo.SDProductsPage;
 import utilities.ReadConfig;
 
 public class SDCartTest extends BaseTest {
