@@ -3,7 +3,6 @@ package utilities.reqresData;
 import lombok.Getter;
 
 public class UserData {
-    @Getter
     private Integer id;
     private String email;
     private String first_name;
@@ -18,7 +17,9 @@ public class UserData {
         this.avatar = avatar;
     }
 
-
+    public Integer getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;

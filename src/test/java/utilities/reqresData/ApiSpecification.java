@@ -17,10 +17,15 @@ public class ApiSpecification {
                 .build();
     }
 
-
     public static ResponseSpecification responseSpecification200OK(){
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
+                .build();
+    }
+
+    public static ResponseSpecification responseSpecification400BadRequest(){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(400)
                 .build();
     }
 

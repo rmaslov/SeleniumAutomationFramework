@@ -3,10 +3,17 @@
 <suite name="Reqres Test Suite">
     <test verbose="2" preserve-order="true" name="Reqres API tests">
         <classes>
-            <class name="testCases.reqresAPI.ReqresUserTest">
+            <class name="testCases.reqresAPI.UsersApiTest">
                 <methods>
                     <include name="checkUserAvatars"/>
                     <include name="checkUserEmails"/>
+                    <include name="checkSingleUser"/>
+                </methods>
+            </class>
+            <class name="testCases.reqresAPI.RegisterApiTest">
+                <methods>
+                    <include name="successRegister"/>
+                    <include name="unSuccessRegister"/>
                 </methods>
             </class>
         </classes>
